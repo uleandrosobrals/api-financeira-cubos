@@ -1,17 +1,5 @@
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\INFRA.deps.json
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\INFRA.runtimeconfig.json
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\INFRA.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\INFRA.pdb
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\DOMAIN.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\bin\Debug\net6.0\DOMAIN.pdb
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.csproj.AssemblyReference.cache
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.AssemblyInfoInputs.cache
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.AssemblyInfo.cs
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.csproj.CoreCompileInputs.cache
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.csproj.CopyComplete
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\refint\INFRA.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.pdb
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\INFRA.genruntimeconfig.cache
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\INFRA\obj\Debug\net6.0\ref\INFRA.dll

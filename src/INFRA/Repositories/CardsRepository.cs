@@ -56,10 +56,10 @@ namespace INFRA.Repositories
                 .ToListAsync();
         }
 
-        public async Task<PagedResult<Card>> GetCardsByPersonAsync(Guid personId, int page, int itemsPerPage)
+        public async Task<PagedResult<Card>> GetCardsByPeopleAsync(Guid peopleId, int page, int itemsPerPage)
         {
             var query = _dbContext.Cards
-                .Where(card => card.PersonId == personId)
+                .Where(card => card.PeopleId == peopleId)
                 .OrderBy(card => card.CreatedAt);
 
             var totalItems = await query.CountAsync();
@@ -72,11 +72,11 @@ namespace INFRA.Repositories
             };
         }
 
-        public async Task<int> GetTotalCardsByPersonAsync(Guid personId)
+        /*public async Task<int> GetTotalCardsByPeopleAsync(Guid peopleId)
         {
             return await _dbContext.Cards
-                .CountAsync(card => card.PersonId == personId);
-        }
+                .CountAsync(card => card.PeopleId == peopleId);
+        }*/
 
     }
 }

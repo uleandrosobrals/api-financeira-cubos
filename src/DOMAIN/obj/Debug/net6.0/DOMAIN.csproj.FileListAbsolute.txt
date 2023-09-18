@@ -1,12 +1,5 @@
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\bin\Debug\net6.0\DOMAIN.deps.json
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\bin\Debug\net6.0\DOMAIN.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\bin\Debug\net6.0\DOMAIN.pdb
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.csproj.AssemblyReference.cache
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.AssemblyInfoInputs.cache
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.AssemblyInfo.cs
 C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.csproj.CoreCompileInputs.cache
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\refint\DOMAIN.dll
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\DOMAIN.pdb
-C:\Users\Leandro Sobral\Desktop\Nova pasta\api-financeira-cubos\src\DOMAIN\obj\Debug\net6.0\ref\DOMAIN.dll

@@ -47,23 +47,20 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("people/{personId}/cards")]
-        public async Task<ActionResult<PagedCardListResponseDTO>> GetCardsByPerson(Guid personId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 10)
+        /*[HttpGet("people/{peopleId}/cards")]
+        public async Task<ActionResult<PagedCardListResponseDTO>> GetCardsByPeople(Guid peopleId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 10)
         {
             try
             {
-                var cards = await _cardService.GetCardsByPeAsync(personId, page, itemsPerPage);
+
+                var cards = await _cardService.GetCardsByPeopleAsync(peopleId, page, itemsPerPage);
                 return Ok(cards);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
-        }
-
-
-
-
+        }*/
 
 
     }

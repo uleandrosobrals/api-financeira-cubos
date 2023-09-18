@@ -29,7 +29,7 @@ namespace DOMAIN.Services
                 throw new BusinessException("Conta não encontrada");
             }
 
-            
+
             var newCard = new Card
             {
                 Id = Guid.NewGuid(),
@@ -38,7 +38,7 @@ namespace DOMAIN.Services
                 CVV = createDTO.CVV,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
-                AccountsId = accountId 
+                AccountsId = accountId
             };
 
             await _cardsRepository.AddCardAsync(newCard);
@@ -82,7 +82,12 @@ namespace DOMAIN.Services
             return cardDTOs;
         }
 
-        public async Task<IEnumerable<CardResponseDTO>> GetCardsByPeopleIdAsync(Guid peopleId)
+        public Task GetCardsByPeopleAsync(Guid peopleId, int page, int itemsPerPage)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*public async Task<IEnumerable<CardResponseDTO>> GetCardsByPeopleIdAsync(Guid peopleId)
         {
             var accountIds = await _accountRepository.GetAccountIdsByPeopleIdAsync(peopleId);
 
@@ -93,43 +98,40 @@ namespace DOMAIN.Services
             }
 
             return cardResponseDTOs;
-        }
+        }*/
 
-        public async Task<PagedCardListResponseDTO> GetCardsByPersonAsync(Guid personId, int page, int itemsPerPage)
-{
-    var existingPerson = await _cardsRepository.GetPersonAsync(personId);
-    if (existingPerson == null)
-    {
-        throw new BusinessException("Pessoa não encontrada");
-    }
-
-    var pagedResult = await _cardsRepository.GetCardsByPersonAsync(personId, page, itemsPerPage);
-
-    var cardDTOs = pagedResult.Items.Select(card => new CardResponseDTO
-    {
-        Id = card.Id,
-        Type = card.Type,
-        Number = card.LastFourDigits,
-        CVV = card.CVV,
-        CreatedAt = card.CreatedAt,
-        UpdatedAt = card.UpdatedAt
-    });
-
-    var pagedResponse = new PagedCardListResponseDTO
-    {
-        Cards = cardDTOs.ToList(),
-        Pagination = new PaginationDTO
+        /*async Task ICardService.GetCardsByPeopleAsync(Guid peopleId, int page, int itemsPerPage)
         {
-            ItemsPerPage = itemsPerPage,
-            CurrentPage = page,
-            TotalItems = pagedResult.TotalItems
-        }
-    };
+            var existingPeople = await _cardsRepository.GetCardsByPeopleAsync(peopleId);
+            if (existingPeople == null)
+            {
+                throw new BusinessException("Pessoa não encontrada");
+            }
 
-    return pagedResponse;
-}
+            var pagedResult = await _cardsRepository.GetCardsByPeopleAsync(peopleId, page, itemsPerPage);
 
+            var cardDTOs = pagedResult.Items.Select(card => new CardResponseDTO
+            {
+                Id = card.Id,
+                Type = card.Type,
+                Number = card.LastFourDigits,
+                CVV = card.CVV,
+                CreatedAt = card.CreatedAt,
+                UpdatedAt = card.UpdatedAt
+            });
 
+            var pagedResponse = new PagedCardListResponseDTO
+            {
+                Cards = cardDTOs.ToList(),
+                Pagination = new PaginationDTO
+                {
+                    ItemsPerPage = itemsPerPage,
+                    CurrentPage = page,
+                    TotalItems = pagedResult.TotalItems
+                }
+            };
 
+            return pagedResponse;
+        }*/
     }
 }

@@ -20,5 +20,7 @@ namespace DOMAIN.Entities
         [Column(Order = 1)]
         public Guid PeopleId { get; set; }
         public virtual People People { get; set; }
+
+        public virtual ICollection<Card> Cards { get; set; }
     }
 }

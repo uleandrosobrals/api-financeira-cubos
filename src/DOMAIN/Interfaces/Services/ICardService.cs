@@ -12,6 +12,6 @@ namespace DOMAIN.Interfaces.Services
         Task<CardResponseDTO> CreateCardAsync(Guid accountId, CardCreateDTO createDTO);
         Task GetCardAsync(Guid accountId, Guid cardId);
         Task<IEnumerable<CardResponseDTO>> GetCardsAsync(Guid accountId);
-        Task GetCardsByPeopleAsync(Guid personId, int page, int itemsPerPage);
+        Task GetCardsByPeopleAsync(Guid peopleId, int page, int itemsPerPage);
     }
 }
