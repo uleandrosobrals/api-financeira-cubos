@@ -6,20 +6,17 @@ using DOMAIN.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DOMAIN.Services
 {
     public class AccountService : IAccountService
     {
-        private readonly IAccountService _accountService;
         private readonly IPeopleService _peopleService;
         private readonly IAccountRepository _accountRepository;
 
-        public AccountService(IAccountService accountService, IPeopleService peopleService, IAccountRepository accountRepository)
+        public AccountService(IPeopleService peopleService, IAccountRepository accountRepository)
         {
-            _accountService = accountService;
             _peopleService = peopleService;
             _accountRepository = accountRepository;
         }
@@ -38,8 +35,8 @@ namespace DOMAIN.Services
                 Account = createDTO.Account,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
-                Balance = 0, 
-                PeopleId = PeopleId 
+                Balance = 0,
+                PeopleId = PeopleId
             };
 
             var createdAccount = await _accountRepository.CreateAsync(newAccount);
@@ -56,6 +53,18 @@ namespace DOMAIN.Services
             return responseDTO;
         }
 
+        public async Task<decimal> GetAccountBalanceAsync(Guid accountId)
+        {
+            var account = await _accountRepository.GetAccountByIdAsync(accountId);
+
+            if (account == null)
+            {
+                throw new Exception("Conta não encontrada.");
+            }
+
+            return account.Balance;
+        }
+
         public async Task<AccountResponseDTO> GetAccountByIdAsync(Guid PeopleId, Guid accountId)
         {
 
@@ -69,7 +78,7 @@ namespace DOMAIN.Services
 
             if (account == null || account.PeopleId != PeopleId)
             {
-                return null; 
+                return null;
             }
 
             var accountDTO = new AccountResponseDTO

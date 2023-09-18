@@ -10,6 +10,6 @@ namespace DOMAIN.Interfaces.Services
         Task<AccountResponseDTO> CreateAccountAsync(Guid PeopleId, AccountCreateDTO createDTO);
         Task<IEnumerable<AccountResponseDTO>> GetAccountsAsync(Guid PeopleId);
         Task<AccountResponseDTO> GetAccountByIdAsync(Guid PeopleId, Guid accountId);
-        Task<decimal> GetAccountBalanceAsync(Guid accountId); // Adicione este método
+        Task<decimal> GetAccountBalanceAsync(Guid accountId);
     }
 }

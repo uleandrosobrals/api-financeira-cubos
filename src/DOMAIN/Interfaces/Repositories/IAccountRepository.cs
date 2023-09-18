@@ -16,6 +16,7 @@ namespace DOMAIN.Interfaces.Repositories
         Task<ICollection<Accounts>> GetAll();
         Task<Accounts> CreateAsync(Accounts account);
         Task<IEnumerable<AccountResponseDTO>> GetAccountsAsync(Guid peopleId);
+        Task<Accounts> GetAccountAsync(Guid accountId);
     }
 
 }

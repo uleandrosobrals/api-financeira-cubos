@@ -53,6 +53,12 @@ namespace INFRA.Repositories
 
             return responseDTOs;
         }
+
+        public async Task<Accounts> GetAccountAsync(Guid accountId)
+        {
+            return await _context.Accounts.FirstOrDefaultAsync(a => a.Id == accountId);
+        }
+
     }
 
 }

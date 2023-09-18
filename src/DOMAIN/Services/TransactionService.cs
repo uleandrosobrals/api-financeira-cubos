@@ -68,7 +68,7 @@ namespace DOMAIN.Services
 
         public async Task<TransactionResponseDTO> GetTransactionAsync(Guid accountId, Guid transactionId)
         {
-            
+
             var account = await _accountRepository.GetAccountAsync(accountId);
             if (account == null)
             {
@@ -93,7 +93,7 @@ namespace DOMAIN.Services
 
         public async Task<TransactionListResponseDTO> GetTransactionsAsync(Guid accountId, int page, int itemsPerPage)
         {
-            
+
             var account = await _accountRepository.GetAccountAsync(accountId);
             if (account == null)
             {
@@ -119,7 +119,7 @@ namespace DOMAIN.Services
 
         public async Task<BalanceResponseDTO> GetAccountBalanceAsync(Guid accountId)
         {
-            
+
             var account = await _accountRepository.GetAccountAsync(accountId);
             if (account == null)
             {
@@ -134,14 +134,14 @@ namespace DOMAIN.Services
 
         public async Task<TransactionRevertDTO> RevertTransactionAsync(Guid accountId, Guid transactionId)
         {
-            
+
             var account = await _accountRepository.GetAccountAsync(accountId);
             if (account == null)
             {
                 throw new BusinessException("Conta não encontrada.");
             }
 
-            
+
             var transaction = await _transactionRepository.GetTransactionAsync(accountId, transactionId);
             if (transaction == null)
             {
