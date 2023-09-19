@@ -15,12 +15,12 @@ namespace DOMAIN.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public decimal Balance { get; set; }
+        public List<Card> Cards { get; set; }
 
         [ForeignKey("People")]
         [Column(Order = 1)]
         public Guid PeopleId { get; set; }
         public virtual People People { get; set; }
 
-        public virtual ICollection<Card> Cards { get; set; }
     }
 }

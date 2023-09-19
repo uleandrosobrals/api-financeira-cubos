@@ -77,9 +77,8 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("PeopleId")
-                        .HasColumnType("uuid")
-                        .HasColumnOrder(2);
+                    b.Property<Guid?>("PeopleId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -175,15 +174,11 @@ namespace API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DOMAIN.Entities.People", "People")
+                    b.HasOne("DOMAIN.Entities.People", null)
                         .WithMany("Cards")
-                        .HasForeignKey("PeopleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PeopleId");
 
                     b.Navigation("Accounts");
-
-                    b.Navigation("People");
                 });
 
             modelBuilder.Entity("DOMAIN.Entities.Transaction", b =>

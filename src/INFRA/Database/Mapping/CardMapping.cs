@@ -8,8 +8,8 @@ namespace INFRA.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<Card> builder)
         {
-            builder.ToTable("Cards"); 
-            builder.HasKey(c => c.Id); 
+            builder.ToTable("Cards");
+            builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Type).IsRequired();
             builder.Property(c => c.Number).IsRequired();
@@ -22,11 +22,7 @@ namespace INFRA.Database.Mapping
                 .HasForeignKey(c => c.AccountsId)
                 .OnDelete(DeleteBehavior.Cascade); 
 
-            builder.HasOne(c => c.People)
-                .WithMany(p => p.Cards)
-                .HasForeignKey(c => c.PeopleId)
-                .OnDelete(DeleteBehavior.Cascade); 
-
+             
         }
     }
 }

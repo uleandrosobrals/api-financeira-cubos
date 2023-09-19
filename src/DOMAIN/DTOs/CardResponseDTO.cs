@@ -11,7 +11,6 @@ namespace DOMAIN.DTOs
         public Guid Id { get; set; }
         public string Type { get; set; }
         public string Number { get; set; }
-        public string LastFourDigits => Number.Substring(Number.Length - 4);
         public string CVV { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/accounts/{accountId}/cards")]
+    [Route("api")]
     public class CardsController : ControllerBase
     {
         private readonly ICardService _cardService;
@@ -18,7 +18,9 @@ namespace API.Controllers
             _cardService = cardService;
         }
 
-        [HttpPost]
+
+        
+        [HttpPost("accounts/{accountId}/cards")]
         public async Task<ActionResult<CardResponseDTO>> CreateCard(Guid accountId, [FromBody] CardCreateDTO cardCreateDTO)
         {
             try
@@ -32,37 +34,32 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<ActionResult<CardListResponseDTO>> GetCards(Guid accountId)
+        [HttpGet("accounts/{accountId}/cards")]
+        public async Task<ActionResult<IEnumerable<CardResponseDTO>>> GetCardsByAccount(Guid accountId)
         {
             try
             {
-                var cards = (await _cardService.GetCardsAsync(accountId)).ToList();
-                return Ok(new CardListResponseDTO { Cards = cards });
-
+                var accountCards = await _cardService.GetCardsAsync(accountId);
+                return Ok(accountCards);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                return BadRequest(ex.Message);
             }
         }
 
-        /*[HttpGet("people/{peopleId}/cards")]
-        public async Task<ActionResult<PagedCardListResponseDTO>> GetCardsByPeople(Guid peopleId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 10)
+        [HttpGet("people/{peopleId}/cards")]
+        public async Task<ActionResult<IEnumerable<CardResponseDTO>>> GetCardsByPeople(Guid peopleId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 5)
         {
             try
             {
-
                 var cards = await _cardService.GetCardsByPeopleAsync(peopleId, page, itemsPerPage);
                 return Ok(cards);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                return BadRequest(ex.Message);
             }
-        }*/
-
-
+        }
     }
 }
-
