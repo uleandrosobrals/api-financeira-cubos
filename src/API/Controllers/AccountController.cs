@@ -30,13 +30,6 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AccountResponseDTO>>> GetAccountsAsync(Guid peopleId)
-        {
-            var result = await _accountService.GetAccountsAsync(peopleId);
-            return Ok(result);
-        }
-
         [HttpGet("{id}", Name = "GetAccount")]
         public async Task<ActionResult<AccountResponseDTO>> GetAccount(Guid peopleId, Guid id)
         {

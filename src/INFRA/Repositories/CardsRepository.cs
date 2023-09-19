@@ -7,76 +7,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace INFRA.Repositories
+namespace DOMAIN.Repositories
 {
-    public class CardRepository : ICardsRepository
+    public class CardsRepository : ICardsRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public CardRepository(ApplicationDbContext dbContext)
+        public CardsRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task AddCardAsync(Card card)
+
+        public async Task<Card> AddCardAsync(Guid accountId, Card card)
         {
+            var account = await _dbContext.Accounts.FirstOrDefaultAsync(a => a.Id == accountId);
+
+            if (account == null)
+            {
+                throw new Exception("Conta não encontrada");
+            }
+
             _dbContext.Cards.Add(card);
             await _dbContext.SaveChangesAsync();
+
+            return card;
         }
+
+
 
         public async Task<Accounts> GetAccountAsync(Guid accountId)
         {
-            return await _dbContext.Accounts.FindAsync(accountId);
+            return await _dbContext.Accounts.FirstOrDefaultAsync(a => a.Id == accountId);
         }
 
         public async Task<List<Card>> GetCardsAsync(Guid accountId)
         {
-            return await _dbContext.Cards
-                .Where(card => card.AccountsId == accountId)
-                .ToListAsync();
+            return await _dbContext.Cards.Where(card => card.AccountsId == accountId).ToListAsync();
         }
 
-        public Task<int> GetTotalCardsByPeopleAsync(Guid peopleId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<List<string>> ListLast4DigitsAsync(Guid accountId)
+
+        public async Task<int> GetTotalCardsByPeopleAsync(Guid peopleId)
         {
             return await _dbContext.Cards
-                .Where(card => card.AccountsId == accountId)
-                .Select(card => card.LastFourDigits)
-                .ToListAsync();
+                      .Join(_dbContext.Accounts, card => card.AccountsId, account => account.Id, (card, account) => new { card, account })
+                      .Where(joinResult => joinResult.account.PeopleId == peopleId)
+                      .CountAsync();
         }
-
-        public async Task<List<Card>> GetCardsByPeopleIdAsync(Guid peopleId)
-        {
-            return await _dbContext.Cards
-                .Where(card => card.PeopleId == peopleId)
-                .ToListAsync();
-        }
-
-        public async Task<PagedResult<Card>> GetCardsByPeopleAsync(Guid peopleId, int page, int itemsPerPage)
-        {
-            var query = _dbContext.Cards
-                .Where(card => card.PeopleId == peopleId)
-                .OrderBy(card => card.CreatedAt);
-
-            var totalItems = await query.CountAsync();
-            var cards = await query.Skip((page - 1) * itemsPerPage).Take(itemsPerPage).ToListAsync();
-
-            return new PagedResult<Card>
-            {
-                Items = cards,
-                TotalItems = totalItems
-            };
-        }
-
-        /*public async Task<int> GetTotalCardsByPeopleAsync(Guid peopleId)
-        {
-            return await _dbContext.Cards
-                .CountAsync(card => card.PeopleId == peopleId);
-        }*/
-
     }
 }

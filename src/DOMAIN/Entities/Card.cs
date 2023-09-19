@@ -21,10 +21,6 @@ namespace DOMAIN.Entities
         public Guid AccountsId { get; set; }
         public virtual Accounts Accounts { get; set; }
 
-        [ForeignKey("People")]
-        [Column(Order = 2)]
-        public Guid PeopleId { get; set; }
-        public virtual People People { get; set; }
 
         [NotMapped]
         public string LastFourDigits => Number != null && Number.Length >= 4 ? Number.Substring(Number.Length - 4) : string.Empty;

@@ -42,7 +42,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
@@ -59,8 +58,9 @@ namespace API.Controllers
             return Ok(transaction);
         }
 
+        
         [HttpGet]
-        public async Task<ActionResult<TransactionListResponseDTO>> GetTransactions(Guid accountId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 10)
+        public async Task<ActionResult<TransactionListResponseDTO>> GetTransaction(Guid accountId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 5)
         {
             try
             {
@@ -73,10 +73,10 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
+
 
         [HttpGet("balance")]
         public async Task<ActionResult<decimal>> GetAccountBalance(Guid accountId)
@@ -92,7 +92,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
@@ -115,7 +114,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
