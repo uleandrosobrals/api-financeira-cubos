@@ -58,24 +58,7 @@ namespace API.Controllers
             return Ok(transaction);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<TransactionListResponseDTO>> GetTransactions(Guid accountId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 10)
-        {
-            try
-            {
-                var transactions = await _transactionService.GetTransactionsAsync(accountId, page, itemsPerPage);
-                return Ok(transactions);
-            }
-            catch (BusinessException)
-            {
-                return NotFound("Conta não encontrada");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Erro interno do servidor");
-            }
-        }
-
+        
         [HttpGet]
         public async Task<ActionResult<TransactionListResponseDTO>> GetTransaction(Guid accountId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 5)
         {

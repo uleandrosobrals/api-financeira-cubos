@@ -14,3 +14,5 @@ namespace DOMAIN.Interfaces.Repositories
         Task<Transaction> RevertTransactionAsync(Guid accountId, Guid transactionId);
     }
 }
+
+
