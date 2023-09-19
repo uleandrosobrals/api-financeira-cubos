@@ -42,7 +42,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
@@ -73,10 +72,28 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult<TransactionListResponseDTO>> GetTransaction(Guid accountId, [FromQuery] int page = 1, [FromQuery] int itemsPerPage = 5)
+        {
+            try
+            {
+                var transactions = await _transactionService.GetTransactionsAsync(accountId, page, itemsPerPage);
+                return Ok(transactions);
+            }
+            catch (BusinessException)
+            {
+                return NotFound("Conta não encontrada");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Erro interno do servidor");
+            }
+        }
+
 
         [HttpGet("balance")]
         public async Task<ActionResult<decimal>> GetAccountBalance(Guid accountId)
@@ -92,7 +109,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }
@@ -115,7 +131,6 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                // Log de exceção, se necessário
                 return StatusCode(500, "Erro interno do servidor");
             }
         }

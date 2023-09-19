@@ -43,7 +43,6 @@ namespace DOMAIN.Services
 
         public Task<IEnumerable<PeopleResponseDTO>> GetPeopleAsync(Guid peopleId)
         {
-            // Você pode retornar uma lista vazia ou qualquer valor de exemplo aqui.
             var peopleList = new List<PeopleResponseDTO>();
             return Task.FromResult<IEnumerable<PeopleResponseDTO>>(peopleList);
         }
