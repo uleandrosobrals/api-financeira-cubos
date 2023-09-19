@@ -20,12 +20,12 @@ A API Financeira oferece as seguintes funcionalidades principais:
 
 4. **Transações em Contas**
    - Realização de transações em uma conta, com validação de saldo para evitar saldo negativo.
-   - Listagem de transações em uma conta com paginação e filtro opcional por data.
+   - Listagem de transações em uma conta com paginação e filtro por data.
 
 5. **Consulta de Saldo**
    - Consulta do saldo de uma conta.
 
-6. **Reversão de Transações (Opcional)**
+6. **Reversão de Transações**
    - Reversão de uma transação, realizando a ação inversa (crédito para débito e vice-versa).
 
 ## Endpoints Principais
@@ -41,7 +41,7 @@ A API oferece os seguintes endpoints principais:
 - `POST /accounts/:accountId/transactions`: Criação de uma transação em uma conta.
 - `GET /accounts/:accountId/transactions`: Listagem de todas as transações de uma conta.
 - `GET /accounts/:accountId/balance`: Consulta do saldo de uma conta.
-- `POST /accounts/:accountId/transactions/:transactionId/revert`: Reversão de uma transação (opcional).
+- `POST /accounts/:accountId/transactions/:transactionId/revert`: Reversão de uma transação.
 
 ## Pré-requisitos
 
