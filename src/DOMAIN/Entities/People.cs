@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DOMAIN.Entities
 {
-    public class People : IdentityUser
+    public class People
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -22,7 +22,7 @@ namespace DOMAIN.Entities
         public virtual Accounts Accounts { get; set; }
 
         [ForeignKey("People")]
-        [Column(Order = 1)]
+        [Column(Order = 2)]
         public Guid PeopleId { get; set; }
         public virtual People People { get; set; }
 

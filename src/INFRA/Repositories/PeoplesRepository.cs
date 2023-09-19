@@ -3,11 +3,6 @@ using DOMAIN.Exceptions;
 using DOMAIN.Interfaces.Repositories;
 using INFRA.Database.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INFRA.Repositories
 {
