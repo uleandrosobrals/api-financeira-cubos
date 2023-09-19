@@ -1,5 +1,3 @@
-Aqui está um exemplo de README para o seu projeto de API financeira:
-
 # API Financeira - Desafio Técnico
 
 Este repositório contém uma API para uma aplicação financeira que oferece uma série de funcionalidades relacionadas a pessoas, contas, cartões e transações. A API foi desenvolvida como parte de um desafio técnico e oferece recursos essenciais para operações financeiras.
